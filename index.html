@@ -2,52 +2,99 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Matías Lepez - Técnico Electrónico y Telecomunicaciones</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #121212;
+      background: linear-gradient(135deg, #1f0036, #5e1b87, #39146f);
+      background-attachment: fixed;
+      background-size: cover;
       color: #eaeaea;
-      scroll-behavior: smooth;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(to right, #111, #221122);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 2rem;
+      box-sizing: border-box;
+    }
+    nav .nav-left, nav .nav-right {
+      display: flex;
+      align-items: center;
+    }
+    nav .nav-left a,
+    nav .nav-right a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #eaeaea;
+      font-size: 0.95rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    nav .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: #fff;
     }
     header {
-      background-color: #1f1f1f;
-      padding: 2rem;
+      padding-top: 6rem;
       text-align: center;
-      color: #bb86fc;
-    }
-    .section {
-      padding: 3rem 1.5rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h2 {
-      color: #bb86fc;
-      border-bottom: 1px solid #444;
       padding-bottom: 0.5rem;
     }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .section {
+      padding: 2rem 1.5rem;
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+    }
     .card {
-      background-color: #1e1e1e;
+      background-color: rgba(35, 35, 35, 0.9);
       border-radius: 12px;
       padding: 1.5rem;
       margin-top: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
     .carousel {
       display: flex;
       overflow-x: auto;
       gap: 1rem;
       padding-bottom: 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: #444 transparent;
+    }
+    .carousel::-webkit-scrollbar {
+      height: 6px;
+    }
+    .carousel::-webkit-scrollbar-thumb {
+      background-color: #444;
+      border-radius: 3px;
     }
     .testimonial {
       min-width: 250px;
-      background-color: #1f1f1f;
+      background-color: rgba(35, 35, 35, 0.95);
       border-radius: 12px;
       padding: 1rem;
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      box-shadow: 0 0 5px rgba(0,0,0,0.5);
+      font-style: italic;
     }
     .stars {
       color: #f5c518;
@@ -58,81 +105,134 @@
       text-decoration: none;
       display: block;
       margin-bottom: 0.5rem;
+      word-break: break-word;
     }
     img.avatar {
       border-radius: 50%;
       width: 120px;
+      margin-bottom: 1.2rem;
+      object-fit: cover;
+      height: 120px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .avatar-small {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      float: right;
+      border-radius: 50%;
+      margin-left: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .ver-todos {
+      text-align: right;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .ver-todos a {
+      color: #bb86fc;
+      text-decoration: none;
+    }
+    .ver-todos a:hover {
+      text-decoration: underline;
+    }
+    .cursos-por-año {
       margin-bottom: 1rem;
+    }
+    .cursos-por-año h3 {
+      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .cursos-por-año ul {
+      margin-top: 0;
+      padding-left: 1.2rem;
+      font-weight: 300;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://api.dicebear.com/6.x/thumbs/svg?seed=matias" alt="Avatar" class="avatar" />
-    <h1>Matías Lepez</h1>
-    <p>Técnico Electrónico y Telecomunicaciones</p>
+  <nav>
+    <div class="nav-left"><a href="#inicio">Inicio</a></div>
+    <div class="logo">Matías Lepez</div>
+    <div class="nav-right">
+      <a href="#experiencias">Experiencias</a>
+      <a href="#cursos">Cursos/Capacitaciones</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <header id="inicio">
+    <img src="https://raw.githubusercontent.com/Matiaslepez/matias-lepez-cv/main/avatar.png" alt="Avatar profesional" class="avatar" />
+    <h1>Técnico Electrónico y Telecomunicaciones</h1>
+    <div style="max-width: 600px; margin: auto; margin-top: -1rem;">
+      <p style="line-height: 1.6;">Soy un técnico dedicado, amable y enfocado en el aprendizaje constante. Me apasiona brindar soluciones prácticas y claras, y mantenerme siempre actualizado con nuevas tecnologías. Disfruto mejorar día a día para ofrecer lo mejor en cada tarea que realizo. Creo profundamente en el trabajo en equipo y en la cooperación mutua para lograr resultados óptimos y de calidad.</p>
+    </div>
   </header>
 
-  <section class="section">
-    <h2>Presentación</h2>
+  <section class="section" id="experiencias">
+    <h2>Experiencias</h2>
     <div class="card">
-      <p>Soy técnico especializado en instalaciones y mantenimiento de servicios de telecomunicaciones domiciliarias. Desde 2014 trabajo en Telecom Argentina brindando atención técnica de calidad y soluciones a medida para cada cliente.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Experiencia Laboral</h2>
-    <div class="card">
-      <p><strong>2014 - Actualidad</strong><br>
-      Técnico de campo en Telecom Argentina. Realicé tareas de reparación e instalación de servicios domiciliarios incluyendo:</p>
+      <p><strong>2014 - Actualidad</strong><br />
+      Técnico de campo en Telecom Argentina. Instalación, mantenimiento y reparación de:</p>
       <ul>
         <li>Telefonía e internet por cobre (xDSL)</li>
         <li>Redes HFC (coaxial)</li>
-        <li>Redes FTTH (fibra óptica) con instalación de módems y Flow TV (IPTV)</li>
+        <li>Redes FTTH (fibra óptica) con módem e IPTV Flow</li>
       </ul>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="cursos">
     <h2>Cursos y Certificaciones</h2>
     <div class="card">
-      <ul>
-        <li>Mantenimiento de equipos indoor/outdoor NGN VDSL</li>
-        <li>Instalación domiciliaria xDSL</li>
-        <li>Redes 5G</li>
-        <li>Curso avanzado de instalación FTTH</li>
-      </ul>
-      <p><em>(En versión final, se mostrarán las imágenes de certificados en galería dinámica)</em></p>
+      <div class="cursos-por-año">
+        <h3>2025</h3>
+        <ul>
+          <li>Mantenimiento de equipos indoor/outdoor NGN VDSL</li>
+          <li>Instalación domiciliaria xDSL</li>
+        </ul>
+      </div>
+      <div class="cursos-por-año">
+        <h3>2024</h3>
+        <ul>
+          <li>Redes 5G</li>
+          <li>Curso avanzado de instalación FTTH</li>
+        </ul>
+      </div>
+      <div class="cursos-por-año">
+        <h3>2023</h3>
+        <ul>
+          <li>Protocolos de seguridad en redes</li>
+          <li>Configuración avanzada de IPTV</li>
+        </ul>
+      </div>
     </div>
+    <div class="ver-todos"><a href="cursos.html" target="_blank">Ver todos...</a></div>
   </section>
 
-  <section class="section">
+  <section class="section" id="clientes">
     <h2>Comentarios de Clientes</h2>
     <div class="carousel">
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p>Excelente atención, resolvió todo rápido y me explicó todo con mucha claridad.</p>
-        <p><strong>- Cliente 1</strong></p>
-      </div>
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p>Muy profesional y puntual. Me dejó todo funcionando perfecto.</p>
-        <p><strong>- Cliente 2</strong></p>
-      </div>
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p>Trato muy amable, se notaba que sabía lo que hacía. Muy recomendable.</p>
-        <p><strong>- Cliente 3</strong></p>
-      </div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>“Muy buena atención y rápido en solucionar todo.”</p></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>“Profesional, amable y claro. Me explicó todo.”</p></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>“Recomiendo totalmente su servicio.”</p></div>
     </div>
+    <div class="ver-todos"><a href="reseñas.html" target="_blank">Ver todos los comentarios...</a></div>
   </section>
 
-  <section class="section contact">
+  <section class="section contact" id="contacto">
     <h2>Contacto</h2>
     <div class="card">
-      <a href="tel:111111">📞 Tel: 111111</a>
-      <a href="mailto:123@correo.com">📧 Correo: 123@correo.com</a>
+      <img src="https://raw.githubusercontent.com/Matiaslepez/matias-lepez-cv/main/avatar.png" alt="Avatar contacto" class="avatar-small" />
+      <p><a href="tel:111111">📞 Tel: 111111</a></p>
+      <p><a href="mailto:123@correo.com">📧 Correo: 123@correo.com</a></p>
+      <p><a href="https://wa.me/5491111111111" target="_blank">💬 WhatsApp</a></p>
+      <p><a href="https://linkedin.com/in/tuusuario" target="_blank">🔗 LinkedIn</a></p>
     </div>
   </section>
 </body>
 </html>
+
