@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reseñas de Clientes - Matías Lepez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #1f0036, #5e1b87, #39146f);
+      color: #eaeaea;
+      padding-top: 4.5rem;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 2rem;
+      box-sizing: border-box;
+    }
+    nav .nav-left, nav .nav-right {
+      display: flex;
+      align-items: center;
+    }
+    nav .nav-left a,
+    nav .nav-right a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #eaeaea;
+      font-size: 0.95rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    nav .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      font-size: 1.8rem;
+    }
+
+    .grid-reseñas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .testimonial {
+      background-color: rgba(35, 35, 35, 0.95);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-8px) rotate(-1deg) scale(1.03);
+      box-shadow: 0 10px 20px rgba(101, 46, 194, 0.6);
+      cursor: default;
+    }
+
+    .stars {
+      color: #f5c518;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      margin: 0.5rem 0;
+    }
+
+    .cliente {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: right;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #5e1b87;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 999;
+    }
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left"><a href="index.html#inicio">Inicio</a></div>
+    <div class="logo">Matías Lepez</div>
+    <div class="nav-right">
+      <a href="index.html#experiencias">Experiencias</a>
+      <a href="index.html#cursos">Cursos/Capacitaciones</a>
+      <a href="index.html#clientes">Clientes</a>
+      <a href="index.html#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <h1>Comentarios de Clientes</h1>
+
+  <!-- BLOQUE RESEÑAS: aquí reemplaza o agrega tus reseñas -->
+  <div class="grid-reseñas">
+    <!-- INICIO BLOQUE RESEÑAS -->
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>“Muy buena atención y rápido en solucionar todo.”</p>
+      <div class="cliente">- Juan P.</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>“Profesional, amable y claro. Me explicó todo.”</p>
+      <div class="cliente">- Laura G.</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>“Recomiendo totalmente su servicio.”</p>
+      <div class="cliente">- Martín D.</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>“Excelente trato, se nota la experiencia que tiene.”</p>
+      <div class="cliente">- Sofia L.</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>“Resolvió todo con mucha claridad y eficiencia.”</p>
+      <div class="cliente">- Andrés R.</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★☆</div>
+      <p>“Muy conforme con el servicio, todo funcionando perfecto.”</p>
+      <div class="cliente">- Paula V.</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>“Super puntual y respetuoso. Muy recomendable.”</p>
+      <div class="cliente">- Diego E.</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>“Gracias Matías, excelente todo como siempre.”</p>
+      <div class="cliente">- Mariana S.</div>
+    </div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Excelente trabajo, muy profesional y puntual.”</p>
+  <div class="cliente">- Juan Pérez</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Me explicó todo con claridad y paciencia, muy recomendable.”</p>
+  <div class="cliente">- Laura Gómez</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Resolvió el problema en tiempo récord, gracias Matías.”</p>
+  <div class="cliente">- Martín Díaz</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Amable y eficiente, la mejor atención que recibí.”</p>
+  <div class="cliente">- Sofía López</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Muy buen servicio, superó mis expectativas.”</p>
+  <div class="cliente">- Andrés Rodríguez</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Trabajo limpio y detallado, muy conforme.”</p>
+  <div class="cliente">- Paula Vargas</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Llegó justo a la hora y solucionó todo rápido.”</p>
+  <div class="cliente">- Diego Esteban</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“La conexión quedó perfecta, muy contenta con el resultado.”</p>
+  <div class="cliente">- Mariana Silva</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Profesional y confiable, lo recomiendo sin dudas.”</p>
+  <div class="cliente">- Esteban Fernández</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Excelente trato y disposición, gracias por la ayuda.”</p>
+  <div class="cliente">- Carla Torres</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Excelente trabajo, muy profesional y puntual.”</p>
+  <div class="cliente">- Juan Pérez</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Me explicó todo con claridad y paciencia, muy recomendable.”</p>
+  <div class="cliente">- Laura Gómez</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Resolvió el problema en tiempo récord, gracias Matías.”</p>
+  <div class="cliente">- Martín Díaz</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Amable y eficiente, la mejor atención que recibí.”</p>
+  <div class="cliente">- Sofía López</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Muy buen servicio, superó mis expectativas.”</p>
+  <div class="cliente">- Andrés Rodríguez</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Trabajo limpio y detallado, muy conforme.”</p>
+  <div class="cliente">- Paula Vargas</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Llegó justo a la hora y solucionó todo rápido.”</p>
+  <div class="cliente">- Diego Esteban</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“La conexión quedó perfecta, muy contenta con el resultado.”</p>
+  <div class="cliente">- Mariana Silva</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Profesional y confiable, lo recomiendo sin dudas.”</p>
+  <div class="cliente">- Esteban Fernández</div>
+</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>“Excelente trato y disposición, gracias por la ayuda.”</p>
+  <div class="cliente">- Carla Torres</div>
+</div>
+    <!-- FIN BLOQUE RESEÑAS -->
+  </div>
+
+  <button id="btn-arriba" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+  style="
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #bb86fc;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    z-index: 999;
+  "
+  title="Volver arriba">↑</button>
+
+<script>
+  const btnArriba = document.getElementById("btn-arriba");
+  window.addEventListener("scroll", () => {
+    btnArriba.style.display = window.scrollY > 500 ? "block" : "none";
+  });
+</script>
+
+</body>
+</html>
