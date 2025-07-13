@@ -156,10 +156,46 @@
       padding-left: 1.2rem;
       font-weight: 300;
     }
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-left, .nav-right {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .nav-left a, .nav-right a {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+   .logo {
+    display: none;
+  }
+nav {
+    transition: transform 0.3s ease;
+  }
+
+  nav.hidden {
+    transform: translateY(-100%);
+  }
+
+  nav.visible {
+    transform: translateY(0);
+  }
+}
+}
   </style>
 </head>
 <body>
   <nav>
+
   <div class="nav-left"><a href="#inicio">Inicio</a></div>
   <div class="logo">Matías Lepez</div>
   <div class="nav-right">
@@ -357,5 +393,28 @@
   const btnArriba = document.getElementById("btn-arriba");
   window.addEventListener("scroll", () => {
     btnArriba.style.display = window.scrollY > 500 ? "block" : "none";
+  });
+</script>
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.querySelector("nav");
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const isMobile = window.innerWidth <= 768;
+
+    if (!isMobile) return;
+
+    if (scrollTop > lastScrollTop) {
+      // Scroll hacia abajo
+      navbar.classList.add("hidden");
+      navbar.classList.remove("visible");
+    } else {
+      // Scroll hacia arriba
+      navbar.classList.remove("hidden");
+      navbar.classList.add("visible");
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Evita negativos
   });
 </script>
