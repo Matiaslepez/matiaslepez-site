@@ -21,7 +21,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: linear-gradient(to right, #111, #221122);
+      background: rgba(17, 17, 17, 0.85); /* Leve transparencia */
       backdrop-filter: blur(6px);
       z-index: 1000;
       display: flex;
@@ -74,34 +74,40 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
     .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding-bottom: 1rem;
-      scrollbar-width: thin;
-      scrollbar-color: #444 transparent;
-    }
-    .carousel::-webkit-scrollbar {
-      height: 6px;
-    }
-    .carousel::-webkit-scrollbar-thumb {
-      background-color: #444;
-      border-radius: 3px;
-    }
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(35, 35, 35, 0.95) transparent;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background-color: rgba(35, 35, 35, 0.95); /* Mismo tono que los cajones */
+  border-radius: 3px;
+}
     .testimonial {
       min-width: 250px;
+      min-height: 140px; /* Más altura */
       background-color: rgba(35, 35, 35, 0.95);
       border-radius: 12px;
       padding: 1rem;
       box-shadow: 0 0 5px rgba(0,0,0,0.5);
       font-style: italic;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .stars {
       color: #f5c518;
       margin-bottom: 0.5rem;
     }
     .contact a {
-      color: #bb86fc;
+      color: #ffffff; /* Texto blanco */
       text-decoration: none;
       display: block;
       margin-bottom: 0.5rem;
@@ -154,15 +160,15 @@
 </head>
 <body>
   <nav>
-    <div class="nav-left"><a href="#inicio">Inicio</a></div>
-    <div class="logo">Matías Lepez</div>
-    <div class="nav-right">
-      <a href="#experiencias">Experiencias</a>
-      <a href="#cursos">Cursos/Capacitaciones</a>
-      <a href="#clientes">Clientes</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-  </nav>
+  <div class="nav-left"><a href="#inicio">Inicio</a></div>
+  <div class="logo">Matías Lepez</div>
+  <div class="nav-right">
+    <a href="#experiencias">Experiencias</a>
+    <a href="#ultimos-cursos">Cursos/Capacitaciones</a>
+    <a href="#clientes">Clientes</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
 
   <header id="inicio">
     <img src="https://raw.githubusercontent.com/Matiaslepez/matias-lepez-cv/main/avatar.png" alt="Avatar profesional" class="avatar" />
@@ -185,53 +191,105 @@
     </div>
   </section>
 
-  <section class="section" id="cursos">
-    <h2>Cursos y Certificaciones</h2>
-    <div class="card">
-      <div class="cursos-por-año">
-        <h3>2025</h3>
-        <ul>
-          <li>Mantenimiento de equipos indoor/outdoor NGN VDSL</li>
-          <li>Instalación domiciliaria xDSL</li>
-        </ul>
-      </div>
-      <div class="cursos-por-año">
-        <h3>2024</h3>
-        <ul>
-          <li>Redes 5G</li>
-          <li>Curso avanzado de instalación FTTH</li>
-        </ul>
-      </div>
-      <div class="cursos-por-año">
-        <h3>2023</h3>
-        <ul>
-          <li>Protocolos de seguridad en redes</li>
-          <li>Configuración avanzada de IPTV</li>
-        </ul>
+  <section id="ultimos-cursos" class="section">
+  <h2 style="margin-bottom: 1rem;">Últimos cursos realizados</h2>
+  <div class="card" style="background-color: rgba(35, 35, 35, 0.9); border-radius: 12px; padding: 1.5rem; box-shadow: 0 0 10px rgba(0,0,0,0.6);">
+
+    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+      <span style="color: #bb86fc; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
+      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
+        <span style="flex-grow: 1;">B2X Impulsamos la Transformación - Customer Centric</span>
+        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
       </div>
     </div>
-    <div class="ver-todos"><a href="cursos.html" target="_blank">Ver todos...</a></div>
-  </section>
 
+    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+      <span style="color: #bb86fc; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
+      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
+        <span style="flex-grow: 1;">B2X Experiencia Cliente y Customer Centricity</span>
+        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+      <span style="color: #bb86fc; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
+      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
+        <span style="flex-grow: 1;">CONEXT - TÉCNICO DOMICILIARIO DE PROVISIÓN/SOPORTE</span>
+        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+      <span style="color: #bb86fc; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
+      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
+        <span style="flex-grow: 1;">NIVELACIÓN EVENTOS HOME + SERVICIOS - MÓDULO TEÓRICO</span>
+        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+      <span style="color: #bb86fc; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
+      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
+        <span style="flex-grow: 1;">Capacitación RCP + DEA + Primeros Auxilios</span>
+        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
+      </div>
+    </div>
+
+  <div class="ver-todos" style="text-align: right; margin-top: 1rem; font-size: 0.9rem;">
+  <a href="cursos.html"
+     style="color: #bb86fc; text-decoration: none; transition: color 0.3s, text-decoration 0.3s;"
+     onmouseover="this.style.color='#d4a5ff'; this.style.textDecoration='underline';"
+     onmouseout="this.style.color='#bb86fc'; this.style.textDecoration='none';">
+    Ver todos...
+  </a>
+</div>
+</section>
   <section class="section" id="clientes">
     <h2>Comentarios de Clientes</h2>
     <div class="carousel">
       <div class="testimonial"><div class="stars">★★★★★</div><p>“Muy buena atención y rápido en solucionar todo.”</p></div>
       <div class="testimonial"><div class="stars">★★★★★</div><p>“Profesional, amable y claro. Me explicó todo.”</p></div>
       <div class="testimonial"><div class="stars">★★★★★</div><p>“Recomiendo totalmente su servicio.”</p></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>“Excelente trato, se nota la experiencia que tiene.”</p></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>“Resolvió todo con mucha claridad y eficiencia.”</p></div>
     </div>
-    <div class="ver-todos"><a href="reseñas.html" target="_blank">Ver todos los comentarios...</a></div>
+    <div class="ver-todos"><a href="reseñas.html">Ver todos los comentarios...</a></div>
   </section>
 
   <section class="section contact" id="contacto">
-    <h2>Contacto</h2>
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/Matiaslepez/matias-lepez-cv/main/avatar.png" alt="Avatar contacto" class="avatar-small" />
-      <p><a href="tel:111111">📞 Tel: 111111</a></p>
-      <p><a href="mailto:123@correo.com">📧 Correo: 123@correo.com</a></p>
-      <p><a href="https://wa.me/5491111111111" target="_blank">💬 WhatsApp</a></p>
-      <p><a href="https://linkedin.com/in/tuusuario" target="_blank">🔗 LinkedIn</a></p>
+  <h2>Contacto</h2>
+  <div class="card" style="display: flex; align-items: center; gap: 1rem; padding: 1rem;">
+    <img src="https://raw.githubusercontent.com/Matiaslepez/matias-lepez-cv/main/avatar.png" alt="Avatar contacto" class="avatar-small" />
+    <div style="font-size: 0.85rem; line-height: 1.4;">
+      <p><a href="tel:+549153541640493"><u>Celular</u>: +54 9 153541640493</a></p>
+      <p><a href="mailto:matilepez@hotmail.com"><u>Email</u>: matilepez@hotmail.com</a></p>
+      <p><a href="https://wa.me/5493541640493" target="_blank"><u>WhatsApp</u>: 3541640493</a></p>
+      <p><a href="https://www.linkedin.com/in/matias-nicolas-lepez-menendez-20936b1b6/" target="_blank"><u>LinkedIn</u></a></p>
     </div>
-  </section>
-</body>
-</html>
+  </div>
+</section>
+<button id="btn-arriba" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+  style="
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #bb86fc;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    z-index: 999;
+  "
+  title="Volver arriba">↑</button>
+
+<script>
+  const btnArriba = document.getElementById("btn-arriba");
+  window.addEventListener("scroll", () => {
+    btnArriba.style.display = window.scrollY > 500 ? "block" : "none";
+  });
+</script>
