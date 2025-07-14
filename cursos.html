@@ -105,19 +105,54 @@
     .icono:hover {
       opacity: 0.8;
     }
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-left, .nav-right {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .nav-left a, .nav-right a {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .logo {
+    display: none; /* Ocultamos el logo para móviles si querés */
+  }
+
+  nav {
+    transition: transform 0.3s ease;
+  }
+
+  nav.hidden {
+    transform: translateY(-100%);
+  }
+
+  nav.visible {
+    transform: translateY(0);
+  }
+}
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-left"><a href="index.html#inicio">Inicio</a></div>
-    <div class="logo">Matías Lepez</div>
-    <div class="nav-right">
-      <a href="index.html#experiencias">Experiencias</a>
-      <a href="index.html#cursos">Cursos/Capacitaciones</a>
-      <a href="index.html#clientes">Clientes</a>
-      <a href="index.html#contacto">Contacto</a>
-    </div>
-  </nav>
+  <nav class="visible">
+  <div class="nav-left"><a href="index.html#inicio">Inicio</a></div>
+  <div class="logo">Matías Lepez</div>
+  <div class="nav-right">
+    <a href="index.html#experiencias">Experiencias</a>
+    <a href="index.html#cursos">Cursos/Capacitaciones</a>
+    <a href="index.html#clientes">Clientes</a>
+    <a href="index.html#contacto">Contacto</a>
+  </div>
+</nav>
 
   <header>
     <h1>Cursos Realizados</h1>
@@ -473,7 +508,7 @@
   </div>
   <a href="certificados/Riesgoelectrico2018.pdf" target="_blank" class="icono" title="Ver certificado">📄</a>
 </div>
-</div>
+
 </div>
 <button id="btn-arriba" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
   style="
@@ -498,6 +533,27 @@
   const btnArriba = document.getElementById("btn-arriba");
   window.addEventListener("scroll", () => {
     btnArriba.style.display = window.scrollY > 500 ? "block" : "none";
+  });
+</script>
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.querySelector("nav");
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const isMobile = window.innerWidth <= 768;
+
+    if (!isMobile) return; // Solo afecta a móviles
+
+    if (scrollTop > lastScrollTop) {
+      navbar.classList.add("hidden");
+      navbar.classList.remove("visible");
+    } else {
+      navbar.classList.remove("hidden");
+      navbar.classList.add("visible");
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
 </script>
 </body>
