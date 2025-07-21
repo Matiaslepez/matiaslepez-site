@@ -110,6 +110,7 @@
     flex-direction: column;
     align-items: center;
     padding: 0.8rem 1rem;
+    transition: transform 0.3s ease;
   }
 
   .nav-left, .nav-right {
@@ -125,11 +126,7 @@
   }
 
   .logo {
-    display: none; /* Ocultamos el logo para móviles si querés */
-  }
-
-  nav {
-    transition: transform 0.3s ease;
+    display: none; /* Ocultamos el logo para móviles */
   }
 
   nav.hidden {
@@ -138,6 +135,20 @@
 
   nav.visible {
     transform: translateY(0);
+  }
+
+  /* En móviles: solo mostrar botón Inicio */
+  .nav-right a {
+    display: none;
+  }
+
+  .nav-left a:nth-child(1) {
+    display: inline-block;
+  }
+
+  .nav-left {
+    justify-content: center;
+    width: 100%;
   }
 }
   </style>
@@ -149,7 +160,6 @@
   <div class="nav-right">
     <a href="index.html#experiencias">Experiencias</a>
     <a href="index.html#cursos">Cursos/Capacitaciones</a>
-    <a href="index.html#clientes">Clientes</a>
     <a href="index.html#contacto">Contacto</a>
   </div>
 </nav>
