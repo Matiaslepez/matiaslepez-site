@@ -161,6 +161,7 @@
     flex-direction: column;
     align-items: center;
     padding: 0.8rem 1rem;
+    transition: transform 0.3s ease;
   }
 
   .nav-left, .nav-right {
@@ -175,11 +176,8 @@
     padding: 0.3rem 0.6rem;
   }
 
-   .logo {
+  .logo {
     display: none;
-  }
-nav {
-    transition: transform 0.3s ease;
   }
 
   nav.hidden {
@@ -189,7 +187,42 @@ nav {
   nav.visible {
     transform: translateY(0);
   }
+
+  /* 🔵 Aquí el ajuste nuevo */
+
+  .nav-right a:nth-child(n+1) {
+    display: none;
+  }
+
+  .nav-left a:nth-child(1) {
+    display: inline-block;
+  }
+
+  .nav-left {
+    justify-content: center;
+    width: 100%;
+  }
+ .contact .card {
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 1rem !important;
 }
+
+.contact .card img.avatar-small {
+  margin: 0 auto;
+  float: none;
+}
+
+.contact .card div:first-child {
+  order: 1;
+}
+
+.contact .card div:last-child {
+  order: 2;
+  text-align: center !important;
+  font-size: 0.9rem !important;
+  color: #aaa !important;
 }
   </style>
 </head>
@@ -201,7 +234,6 @@ nav {
   <div class="nav-right">
     <a href="#experiencias">Experiencias</a>
     <a href="#ultimos-cursos">Cursos/Capacitaciones</a>
-    <a href="#clientes">Clientes</a>
     <a href="#contacto">Contacto</a>
   </div>
 </nav>
@@ -333,20 +365,38 @@ nav {
     Ver todos...
   </a>
 </div>
-</section>
-  <section class="section" id="clientes">
-    <h2>Comentarios de Clientes</h2>
-    <div class="carousel">
-      <div class="testimonial"><div class="stars">★★★★★</div><p>“Muy buena atención y rápido en solucionar todo.”</p></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>“Profesional, amable y claro. Me explicó todo.”</p></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>“Recomiendo totalmente su servicio.”</p></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>“Excelente trato, se nota la experiencia que tiene.”</p></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>“Resolvió todo con mucha claridad y eficiencia.”</p></div>
-    </div>
-    </div>
+<section class="section" id="mi-experiencia">
+  <h2>Mi Experiencia en Números</h2>
+  <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem; font-size: 1.05rem;">
+
+    <div style="display: flex; align-items: center;">
+  <span style="font-size: 1.5rem; margin-right: 0.6rem;">📊</span>
+  <span>
+    <span style="color: #ffffff; font-size: 1.2rem; font-weight: 500;">+10.000</span> servicios técnicos / instalaciones realizados
+  </span>
 </div>
-<div class="ver-todos"><a href="reseñas.html">Ver todos los comentarios...</a></div>
-  </section>
+
+    <div style="display: flex; align-items: center;">
+      <span style="font-size: 1.5rem; color: #bb86fc; margin-right: 0.6rem;">📅</span>
+      <span>
+        <span style="color: #ffffff; font-size: 1.2rem; font-weight: 500;" id="anios-experiencia"></span> de trayectoria en telecomunicaciones
+      </span>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+      <span style="font-size: 1.5rem; color: #bb86fc; margin-right: 0.6rem;">🛠️</span>
+      <span>
+        <span style="color: #ffffff; font-size: 1.2rem; font-weight: 500;">4 tecnologías</span> dominadas: FTTH, xDSL, IPTV y HFC
+      </span>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+      <span style="font-size: 1.5rem; color: #bb86fc; margin-right: 0.6rem;">🚀</span>
+      <span>Trabajo constante enfocado en <span style="font-weight: 500;">eficiencia y calidad</span></span>
+    </div>
+
+  </div>
+</section>
 
   <section class="section contact" id="contacto">
   <h2>Contacto</h2>
@@ -417,4 +467,18 @@ nav {
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Evita negativos
   });
+</script>
+<script>
+  const fechaInicio = new Date(2014, 6); // Año 2014, mes 6 (julio es mes 6 porque enero=0)
+  const hoy = new Date();
+  
+  let anios = hoy.getFullYear() - fechaInicio.getFullYear();
+  const mesActual = hoy.getMonth();
+  
+  // Si el mes actual es antes de julio, restar un año
+  if (mesActual < 6) {
+    anios--;
+  }
+
+  document.getElementById("anios-experiencia").textContent = anios + " años";
 </script>
