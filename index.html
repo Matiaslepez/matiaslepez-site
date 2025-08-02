@@ -156,6 +156,20 @@
       padding-left: 1.2rem;
       font-weight: 300;
     }
+.bloque-presentacion {
+  background-color: rgba(0, 0, 0, 0.25); /* Fondo oscuro sutil */
+  padding: 4rem 1rem 3rem;
+  text-align: center;
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -224,6 +238,7 @@
   font-size: 0.9rem !important;
   color: #aaa !important;
 }
+
   </style>
 </head>
 <body>
@@ -238,13 +253,16 @@
   </div>
 </nav>
 
-  <header id="inicio">
-    <img src="https://raw.githubusercontent.com/Matiaslepez/matias-lepez-cv/main/avatar.png" alt="Avatar profesional" class="avatar" />
-    <h1>Técnico Electrónico y Telecomunicaciones</h1>
-    <div style="max-width: 600px; margin: auto; margin-top: -1rem;">
-      <p style="line-height: 1.6;">Técnico con más de 10 años de experiencia en instalaciones, mantenimiento y soporte en redes de telecomunicaciones. Amplia trayectoria en sistemas FTTH, xDSL y servicios de IPTV. Enfocado en la resolución ágil de problemas, la atención cordial al cliente y el aprendizaje continuo. Capacidad para trabajar en equipo y aportar soluciones claras y eficientes.</p>
-    </div>
-  </header>
+  <div class="bloque-presentacion fade-in" id="inicio" style="padding-top: 6rem; padding-bottom: 0.5rem;">
+  <img src="https://raw.githubusercontent.com/Matiaslepez/matias-lepez-cv/main/avatar.png" alt="Avatar profesional" class="avatar" />
+  <h1>Técnico Electrónico y Telecomunicaciones</h1>
+  <div style="max-width: 600px; margin: auto; margin-top: -1rem;">
+    <p style="line-height: 1.6;">
+      Técnico con más de 10 años de experiencia en instalaciones, mantenimiento y soporte en redes de telecomunicaciones. Amplia trayectoria en sistemas FTTH, xDSL y servicios de IPTV. Enfocado en la resolución ágil de problemas, la atención cordial al cliente y el aprendizaje continuo. Capacidad para trabajar en equipo y aportar soluciones claras y eficientes.
+    </p>
+</div>  
+</div>
+</div>
 
   <section class="section" id="experiencias">
   <h2>Experiencias</h2>
@@ -481,4 +499,14 @@
   }
 
   document.getElementById("anios-experiencia").textContent = anios + " años";
+</script>
+<script>
+  window.addEventListener('pageshow', function(event) {
+    const presentacion = document.querySelector('.bloque-presentacion');
+    if (presentacion) {
+      presentacion.classList.remove('fade-in');
+      void presentacion.offsetWidth; // reinicia el estado
+      presentacion.classList.add('fade-in');
+    }
+  });
 </script>
