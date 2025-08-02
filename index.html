@@ -113,6 +113,14 @@
       margin-bottom: 0.5rem;
       word-break: break-word;
     }
+.contacto-enlace {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.contacto-enlace:hover {
+  transform: scale(1.015);
+}
     img.avatar {
       border-radius: 50%;
       width: 120px;
@@ -418,24 +426,26 @@
 
   <section class="section contact" id="contacto">
   <h2>Contacto</h2>
-  <div class="card" style="display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; padding: 1rem;">
-    
-    <!-- Foto y datos -->
-    <div style="display: flex; align-items: center; gap: 1rem;">
+  <div class="card" style="display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; padding: 1rem; flex-wrap: wrap;">
+
+    <!-- Columna izquierda: Imagen arriba, datos abajo -->
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; gap: 1rem;">
       <img src="https://raw.githubusercontent.com/Matiaslepez/matias-lepez-cv/main/avatar.png" alt="Avatar contacto" class="avatar-small" style="flex-shrink: 0;" />
-      <div style="font-size: 0.9rem; line-height: 1.5;">
-        <p><a href="tel:+549153541640493"><u>Celular</u>: +54 9 153541640493</a></p>
-        <p><a href="mailto:matilepez@hotmail.com"><u>Email</u>: matilepez@hotmail.com</a></p>
-        <p><a href="https://wa.me/5493541640493" target="_blank"><u>WhatsApp</u>: 3541640493</a></p>
-        <p><a href="https://www.linkedin.com/in/matias-nicolas-lepez-menendez-20936b1b6/" target="_blank"><u>LinkedIn</u></a></p>
+      <div style="font-size: 0.9rem; line-height: 1.5; text-align: center;">
+        <a class="contacto-enlace" href="mailto:contacto@matiaslepez.com">Email: contacto@matiaslepez.com</a>
+        <a class="contacto-enlace" href="https://wa.me/5493541640493" target="_blank">Enviar WhatsApp</a>
+        <a class="contacto-enlace" href="https://www.linkedin.com/in/matias-nicolas-lepez-menendez-20936b1b6/" target="_blank">LinkedIn</a>
       </div>
     </div>
 
-    <!-- Texto centrado visualmente, más tenue y más chico -->
+    <!-- Columna derecha: Frase -->
     <div style="flex: 1; font-size: 0.92rem; line-height: 1.7; color: #999; font-style: italic; text-align: center; display: flex; align-items: center;">
       “Soy un técnico dedicado, amable y enfocado en el aprendizaje constante. Me apasiona brindar soluciones prácticas y claras, y mantenerme siempre actualizado con nuevas tecnologías. Disfruto mejorar día a día para ofrecer lo mejor en cada tarea que realizo. Creo profundamente en el trabajo en equipo y en la cooperación mutua para lograr resultados óptimos y de calidad.”
     </div>
 
+  </div>
+</section>
+    
   </div>
 </section>
 <button id="btn-arriba" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
