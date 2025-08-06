@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cursos y Certificaciones - Matías Lepez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at center, #2d5fac 0%, #1a2e46 80%, #0d1826 100%);
+      background-attachment: fixed;
+      background-size: cover;
+      color: #eaeaea;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 2rem;
+      box-sizing: border-box;
+    }
+    nav .nav-left, nav .nav-right {
+      display: flex;
+      align-items: center;
+    }
+    nav .nav-left a, nav .nav-right a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #eaeaea;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    nav .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+    header {
+      padding-top: 6rem;
+      text-align: center;
+      padding-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.2rem;
+    }
+    .separador {
+      height: 1px;
+      background-color: rgba(255,255,255,0.2);
+      margin: 1rem auto;
+      width: 80%;
+    }
+    .contenedor {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1rem;
+    }
+    .anio {
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 0.5rem;
+      font-weight: 500;
+      color: #7e90a0;
+    }
+    .fila {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 0.7rem 0;
+      gap: 1rem;
+      transition: transform 0.2s ease;
+    }
+    .fila:hover {
+      transform: scale(1.015);
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+    }
+    .titulo-curso {
+      font-weight: 500;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: #bbb;
+    }
+    .icono {
+      font-size: 1.2rem;
+      color: #bb86fc;
+      cursor: pointer;
+    }
+    .icono:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+<nav class="visible">
+  <div class="nav-left"><a href="index.html#inicio">Inicio</a></div>
+  <div class="logo">Matías Lepez</div>
+  <div class="nav-right">
+    <a href="index.html#experiencias">Experiencias</a>
+    <a href="index.html#cursos">Cursos/Capacitaciones</a>
+    <a href="index.html#contacto">Contacto</a>
+  </div>
+</nav>
+
+<header>
+  <h1>Cursos Realizados</h1>
+</header>
+
+<div class="separador"></div>
+
+<div class="contenedor" id="contenedor-cursos">
+  <!-- Los cursos se cargarán aquí automáticamente -->
+</div>
+
+
+<script>
+fetch('cursos.json')
+  .then(response => response.json())
+  .then(data => {
+    const contenedor = document.getElementById("contenedor-cursos");
+    const cursosPorAnio = {};
+
+    data.forEach(curso => {
+      if (!cursosPorAnio[curso.anio]) {
+        cursosPorAnio[curso.anio] = [];
+      }
+      cursosPorAnio[curso.anio].push(curso);
+    });
+
+    const anios = Object.keys(cursosPorAnio).sort((a, b) => b - a);
+
+    anios.forEach(anio => {
+      const seccionAnio = document.createElement("div");
+      seccionAnio.innerHTML = `<div class='anio'>${anio}</div>`;
+      cursosPorAnio[anio].forEach(curso => {
+        const fila = document.createElement("div");
+        fila.className = "fila";
+        fila.innerHTML = `
+          <div class="info">
+            <span class="titulo-curso">${curso.titulo}</span>
+            <span class="meta">${curso.anio} - ${curso.institucion}</span>
+          </div>
+          <a href="${curso.certificado}" target="_blank" class="icono" title="Ver certificado">📄</a>
+        `;
+        seccionAnio.appendChild(fila);
+      });
+      contenedor.appendChild(seccionAnio);
+    });
+  });
+</script>
+
+
+</body>
+</html>
