@@ -338,59 +338,25 @@
   </div>
 </section>
 
-  <section id="ultimos-cursos" class="section">
+ <section id="ultimos-cursos" class="section">
   <h2 style="margin-bottom: 1rem;">Últimos cursos realizados</h2>
-  <div class="card" style="background-color: rgba(35, 35, 35, 0.9); border-radius: 12px; padding: 1.5rem; box-shadow: 0 0 10px rgba(0,0,0,0.6);">
 
-    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-      <span style="color: #1e4f5d; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
-      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
-        <span style="flex-grow: 1;">B2X Impulsamos la Transformación - Customer Centric</span>
-        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
-      </div>
-    </div>
+  <div class="card" id="contenedor-cursos-index" style="background-color: rgba(35, 35, 35, 0.9); border-radius: 12px; padding: 1.5rem; box-shadow: 0 0 10px rgba(0,0,0,0.6);">
+    <!-- Cursos se insertan dinámicamente acá -->
+  </div>
 
-    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-      <span style="color: #1e4f5d; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
-      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
-        <span style="flex-grow: 1;">B2X Experiencia Cliente y Customer Centricity</span>
-        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
-      </div>
-    </div>
+  <!-- Este bloque va por fuera de .card pero dentro de la sección -->
+  <div class="ver-todos" style="text-align: right; max-width: 800px; margin: 0 auto; margin-top: 0.5rem; font-size: 0.9rem;">
+    <a href="cursos.html"
+       style="color: #ffffff; text-decoration: none; transition: color 0.3s, text-decoration 0.3s;"
+       onmouseover="this.style.color='#1e4f5d'; this.style.textDecoration='underline';"
+       onmouseout="this.style.color='#ffffff'; this.style.textDecoration='none';">
+      Ver todos...
+    </a>
+  </div>
+</section>
 
-    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-      <span style="color: #1e4f5d; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
-      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
-        <span style="flex-grow: 1;">CONEXT - TÉCNICO DOMICILIARIO DE PROVISIÓN/SOPORTE</span>
-        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
-      </div>
-    </div>
 
-    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
-      <span style="color: #1e4f5d; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
-      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
-        <span style="flex-grow: 1;">NIVELACIÓN EVENTOS HOME + SERVICIOS - MÓDULO TEÓRICO</span>
-        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
-      </div>
-    </div>
-
-    <div style="display: flex; align-items: center;">
-      <span style="color: #1e4f5d; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
-      <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
-        <span style="flex-grow: 1;">Capacitación RCP + DEA + Primeros Auxilios</span>
-        <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">2025</span>
-      </div>
-    </div>
-</div>
-</div>
-  <div class="ver-todos" style="text-align: right; margin-top: 1rem; font-size: 0.9rem;">
-  <a href="cursos.html"
-     style="color: #ffffff; text-decoration: none; transition: color 0.3s, text-decoration 0.3s;"
-     onmouseover="this.style.color='#1e4f5d'; this.style.textDecoration='underline';"
-     onmouseout="this.style.color='#ffffff'; this.style.textDecoration='none';">
-    Ver todos...
-  </a>
-</div>
 <section class="section" id="mi-experiencia">
   <h2>Mi Experiencia en Números</h2>
   <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem; font-size: 1.05rem;">
@@ -519,4 +485,25 @@
       presentacion.classList.add('fade-in');
     }
   });
+</script>
+<script>
+  fetch('cursos.json')
+    .then(response => response.json())
+    .then(cursos => {
+      const ultimos = cursos.slice(-4).reverse(); // últimos 4 cursos
+      const contenedor = document.getElementById('contenedor-cursos-index');
+
+      ultimos.forEach(curso => {
+        const cursoHTML = `
+          <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+            <span style="color: #1e4f5d; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
+            <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
+              <span style="flex-grow: 1;">${curso.titulo}</span>
+              <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">${curso.anio}</span>
+            </div>
+          </div>
+        `;
+        contenedor.insertAdjacentHTML('beforeend', cursoHTML);
+      });
+    });
 </script>
