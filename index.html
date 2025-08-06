@@ -490,14 +490,14 @@
   fetch('cursos.json')
     .then(response => response.json())
     .then(cursos => {
-      const ultimos = cursos.slice(-4).reverse(); // últimos 4 cursos
+      const ultimos = cursos.reverse().slice(0, 5); // ahora sí: los últimos cursos agregados
       const contenedor = document.getElementById('contenedor-cursos-index');
 
       ultimos.forEach(curso => {
         const cursoHTML = `
-          <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+          <div style="display: flex; align-items: center; margin-bottom: 1.2rem;">
             <span style="color: #1e4f5d; font-size: 1.2rem; margin-right: 0.6rem;">•</span>
-            <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2);">
+            <div style="flex-grow: 1; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.3rem;">
               <span style="flex-grow: 1;">${curso.titulo}</span>
               <span style="color: #999; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">${curso.anio}</span>
             </div>
@@ -507,3 +507,4 @@
       });
     });
 </script>
+
