@@ -490,7 +490,7 @@
   fetch('cursos.json')
     .then(response => response.json())
     .then(cursos => {
-      const ultimos = cursos.reverse().slice(0, 5); // ahora sí: los últimos cursos agregados
+      const ultimos = cursos.slice(0, 5); // Toma los 5 primeros, que son los más nuevos
       const contenedor = document.getElementById('contenedor-cursos-index');
 
       ultimos.forEach(curso => {
@@ -507,4 +507,5 @@
       });
     });
 </script>
+
 
