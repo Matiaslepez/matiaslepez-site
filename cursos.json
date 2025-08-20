@@ -1,5 +1,17 @@
 [
   {
+    "titulo": "Phishing",
+    "anio": "2025",
+    "institucion": "Telecom Argentina",
+    "certificado": "certificados/PHISHING2025.pdf"
+  },
+  {
+    "titulo": " Contraseñas Seguras",
+    "anio": "2025",
+    "institucion": "Telecom Argentina",
+    "certificado": "certificados/CONTRASENASSEGURAS2025.pdf"
+  },
+  {
     "titulo": "Fundamentos de Inteligencia Artificial",
     "anio": "2025",
     "institucion": "Telecom Argentina",
