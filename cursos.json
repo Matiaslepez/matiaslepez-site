@@ -1,5 +1,11 @@
 [
     {
+    "titulo": "Liderazgo Ágil",
+    "anio": "2025",
+    "institucion": "Telecom Argentina",
+    "certificado": "certificados/LIDERAZGOAGIL2025.pdf"
+  },
+    {
     "titulo": "Phishing",
     "anio": "2025",
     "institucion": "Telecom Argentina",
